@@ -1,56 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmita <mmita@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:47:42 by mmita             #+#    #+#             */
-/*   Updated: 2022/12/11 20:43:40 by mmita            ###   ########.fr       */
+/*   Updated: 2022/12/25 11:33:39 by mmita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_control(va_list arg, char *str, int i)
+void	ft_control(va_list arg, char *print, int i)
 {
-	if (*str == 'c')
-		ft_strchar(va_arg(arg, int), i);
-	else if (*str == 's')
-		ft_strstr(va_arg(arg, char *), i);
-	else if (*str == '%')
-		ft_strchar(*str, i);
-	else if ((*str == 'd') || (*str == 'i'))
-		ft_strdori(va_arg(arg, int), i);
-	else if (*str == 'u')
-		ft_strunsig(va_arg(arg, int), i);
-	else if (*str == 'x')
-		ft_strhex(va_arg(arg, unsigned int), i);
-	else if (*str == 'X')
-		ft_struphex(va_arg(arg, int), i);
-	else if (*str == 'p')
-		ft_strmemptr(va_arg(arg, unsigned long int), i);
+	if (*print == 'c')
+		ft_printchar(va_arg(arg, int), i);
+	else if (*print == 's')
+		ft_printstr(va_arg(arg, char *), i);
+	else if (*print == '%')
+		ft_printchar(*print, i);
+	else if ((*print == 'd') || (*print == 'i'))
+		ft_printdori(va_arg(arg, int), i);
+	else if (*print == 'u')
+		ft_printunsig(va_arg(arg, int), i);
+	else if (*print == 'x')
+		ft_printhex(va_arg(arg, unsigned int), i);
+	else if (*print == 'X')
+		ft_printuphex(va_arg(arg, int), i);
+	else if (*print == 'p')
+		ft_printmemptr(va_arg(arg, unsigned long int), i);
 }
 
-int	ft_strf(char const *str, ...)
+int	ft_printf(char const *print, ...)
 {
 	va_list	arg;
 	size_t	i;
 
 	i = 0;
-	va_start (arg, str);
-	while (*str)
+	va_start (arg, print);
+	while (*print)
 	{
-		if (*str == '%')
+		if (*print == '%')
 		{
-			str++;
-			ft_control(arg, (char *)str, &i);
+			print++;
+			ft_control(arg, (char *)print, &i);
 		}
 		else
 		{
-			ft_strchar(*str, &i);
+			ft_printchar(*print, &i);
 		}
-		str++;
+		print++;
 	}
 	va_end(arg);
 	return (i);
