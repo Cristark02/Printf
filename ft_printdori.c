@@ -6,11 +6,11 @@
 /*   By: mmita <mmita@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 11:42:37 by mmita             #+#    #+#             */
-/*   Updated: 2023/01/07 12:53:47 by mmita            ###   ########.fr       */
+/*   Updated: 2023/01/07 17:42:54 by mmita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	ft_printdori(int n, size_t *i)
 {
