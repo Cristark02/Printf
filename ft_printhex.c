@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmita <mmita@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/11 18:52:10 by mmita             #+#    #+#             */
-/*   Updated: 2023/01/07 16:13:04 by mmita            ###   ########.fr       */
+/*   Created: 2023/01/07 15:45:01 by mmita             #+#    #+#             */
+/*   Updated: 2023/01/07 16:13:02 by mmita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+#include "ft_printf.h"
 
-int		ft_printf(char const *print, ...);
-void	ft_printchar(char c, size_t *i);
-void	ft_printstr(char *print, size_t *i);
-void	ft_printunsig(unsigned int n, size_t *i);
-void	ft_printhex(unsigned int n, size_t *i);
+void	ft_printhex(unsigned int n, size_t *i)
+{
+	char	string[25];
+	char	*base_character;
+	int		j;
 
-#endif
+	if (n == 0)
+	{
+		ft_printchar('0', i);
+		return ;
+	}
+	while (n != 0)
+	{
+		string[j] = base_character [n % 16];
+		n = n / 16;
+		j++;
+	}
+	while (j--)
+		ft_printchar(string[j], i);
+}

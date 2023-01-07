@@ -3,7 +3,8 @@ NAME	=	libftprintf.a
 SRC	=	ft_printf.c, ft_printchar.c \
 ft_printstr.c \
 ft_printdori.c \
-ft_printunsig.c
+ft_printunsig.c \
+ft_printhex.c
 
 OBJS = $(SRC:.c=.o)
 
