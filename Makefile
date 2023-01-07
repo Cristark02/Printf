@@ -4,7 +4,8 @@ SRC	=	ft_printf.c, ft_printchar.c \
 ft_printstr.c \
 ft_printdori.c \
 ft_printunsig.c \
-ft_printhex.c
+ft_printhex.c \
+ft_printuphex.c
 
 OBJS = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: mmita <mmita@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:52:10 by mmita             #+#    #+#             */
-/*   Updated: 2023/01/07 16:13:04 by mmita            ###   ########.fr       */
+/*   Updated: 2023/01/07 16:46:09 by mmita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	ft_printchar(char c, size_t *i);
 void	ft_printstr(char *print, size_t *i);
 void	ft_printunsig(unsigned int n, size_t *i);
 void	ft_printhex(unsigned int n, size_t *i);
+void	ft_printuphex(unsigned int n, size_t *i);
 
 #endif

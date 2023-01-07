@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*   ft_printuphex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmita <mmita@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 15:45:01 by mmita             #+#    #+#             */
-/*   Updated: 2023/01/07 16:42:38 by mmita            ###   ########.fr       */
+/*   Created: 2023/01/07 16:36:48 by mmita             #+#    #+#             */
+/*   Updated: 2023/01/07 16:45:52 by mmita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printhex(unsigned int n, size_t *i)
+void	ft_printuphex(unsigned int n, size_t *i)
 {
 	char	string[25];
 	char	*base_character;
 	int		j;
 
-	base_character = "0123456789abcdef";
+	base_character = "0123456789ABCDEF";
 	if (n == 0)
 	{
 		ft_printchar('0', i);
