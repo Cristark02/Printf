@@ -6,36 +6,39 @@
 /*   By: mmita <mmita@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:47:42 by mmita             #+#    #+#             */
-/*   Updated: 2023/01/07 17:42:50 by mmita            ###   ########.fr       */
+/*   Updated: 2023/01/28 19:14:55 by mmita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_control(va_list arg, char *print, int i)
+void	ft_control(va_list arg, char *print, int *i)
 {
-	if (*print == 'c')
+	if (*print == '%')
+		ft_printchar(*print, i);
+	else if (*print == 'c')
 		ft_printchar(va_arg(arg, int), i);
 	else if (*print == 's')
 		ft_printstr(va_arg(arg, char *), i);
-	else if (*print == '%')
-		ft_printchar(*print, i);
+	else if (*print == 'p')
+	{
+		ft_printstr("0x", i);
+		ft_printhex(va_arg(arg, unsigned long long), i, HEX_LOW_BASE);
+	}
 	else if ((*print == 'd') || (*print == 'i'))
 		ft_printdori(va_arg(arg, int), i);
 	else if (*print == 'u')
 		ft_printunsig(va_arg(arg, int), i);
 	else if (*print == 'x')
-		ft_printhex(va_arg(arg, unsigned int), i);
+		ft_printhex(va_arg(arg, unsigned int), i, HEX_LOW_BASE);
 	else if (*print == 'X')
-		ft_printuphex(va_arg(arg, int), i);
-	else if (*print == 'p')
-		ft_printmemptr(va_arg(arg, unsigned long int), i);
+		ft_printhex(va_arg(arg, unsigned int), i, HEX_UPP_BASE);
 }
 
 int	ft_printf(char const *print, ...)
 {
 	va_list	arg;
-	size_t	i;
+	int		i;
 
 	i = 0;
 	va_start (arg, print);
@@ -51,6 +54,11 @@ int	ft_printf(char const *print, ...)
 			ft_printchar(*print, &i);
 		}
 		print++;
+		if (!print)
+		{
+			print = "(null)";
+			va_end(arg);
+		}
 	}
 	va_end(arg);
 	return (i);

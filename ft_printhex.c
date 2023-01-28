@@ -6,30 +6,19 @@
 /*   By: mmita <mmita@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 15:45:01 by mmita             #+#    #+#             */
-/*   Updated: 2023/01/07 17:42:40 by mmita            ###   ########.fr       */
+/*   Updated: 2023/01/28 18:24:36 by mmita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printhex(unsigned int n, size_t *i)
+void	ft_printhex(unsigned long long n, int *i, char *base)
 {
-	char	string[25];
-	char	*base_character;
-	int		j;
-
-	base_character = "0123456789abcdef";
-	if (n == 0)
+	if (n > 15)
 	{
-		ft_printchar('0', i);
-		return ;
+		ft_printhex((n / 16), i, base);
+		ft_printhex((n % 16), i, base);
 	}
-	while (n != 0)
-	{
-		string[j] = base_character [n % 16];
-		n = n / 16;
-		j++;
-	}
-	while (j--)
-		ft_printchar(string[j], i);
+	else
+		ft_printchar(base[n], i);
 }

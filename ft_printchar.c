@@ -6,14 +6,14 @@
 /*   By: mmita <mmita@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 11:30:15 by mmita             #+#    #+#             */
-/*   Updated: 2023/01/07 17:42:58 by mmita            ###   ########.fr       */
+/*   Updated: 2023/01/28 15:56:15 by mmita            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printchar(char c, size_t *i)
+void	ft_printchar(char c, int *i)
 {
-	write (i, &c, 1);
+	write (1, &c, 1);
 	(*i)++;
 }

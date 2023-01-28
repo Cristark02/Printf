@@ -1,12 +1,23 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mmita <mmita@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/01/07 17:54:10 by mmita             #+#    #+#              #
+#    Updated: 2023/01/28 18:30:37 by mmita            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	libftprintf.a
 
-SRC	=	ft_printf.c, ft_printchar.c \
+SRC	=	ft_printf.c \
+ft_printchar.c \
 ft_printstr.c \
 ft_printdori.c \
 ft_printunsig.c \
-ft_printhex.c \
-ft_printuphex.c \
-ft_printmemptr.c
+ft_printhex.c
 
 OBJS = $(SRC:.c=.o)
 
